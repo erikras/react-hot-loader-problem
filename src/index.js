@@ -1,26 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
-import { reducer as form } from 'redux-form'
-import { Router, browserHistory } from 'react-router'
-import { IndexRoute, Route } from 'react-router'
 import App from './App'
 import Page from './Page'
 
 const dest = document.getElementById('content')
-const reducer = combineReducers({ form })
-const store = createStore(reducer)
 
 let render = () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={Page}/>
-        </Route>
-      </Router>
-    </Provider>,
+    <App>
+      <Page/>
+    </App>,
     dest
   )
 }

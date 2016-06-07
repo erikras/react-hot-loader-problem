@@ -1,4 +1,7 @@
-# Demonstration of React Hot Loader problem
+# Demonstration of React Hot Loader
+
+#[Issue #307](https://github.com/gaearon/react-hot-loader/issues/307)
+
 
 ```
 npm install
