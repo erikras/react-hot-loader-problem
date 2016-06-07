@@ -1,4 +1,4 @@
-# Demonstration of React Hot Loader
+# Demonstration of React Hot Loader Problem
 
 #[Issue #307](https://github.com/gaearon/react-hot-loader/issues/307)
 
