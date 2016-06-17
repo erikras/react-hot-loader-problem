@@ -1,42 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader';
 import App from './App'
-import Page from './Page'
 
 const dest = document.getElementById('content')
 
-let render = () => {
-  ReactDOM.render(
-    <App>
-      <Page/>
-    </App>,
-    dest
-  )
-}
+ReactDOM.render(
+  <AppContainer>
+    <App/>
+  </AppContainer>,
+  dest
+)
 
 if (module.hot) {
-  // Support hot reloading of components
-  // and display an overlay for runtime errors
-  const renderApp = render
-  const renderError = (error) => {
-    const RedBox = require('redbox-react')
+  module.hot.accept('./App', () => {
+    // If you use Webpack 2 in ES modules mode, you can
+    // use <App /> here rather than require() a <NextApp />.
+    const NextApp = require('./App').default;
     ReactDOM.render(
-      <RedBox error={error} className="redbox"/>,
+      <AppContainer>
+        <NextApp/>
+      </AppContainer>,
       dest
-    )
-  }
-  render = () => {
-    try {
-      renderApp()
-    } catch (error) {
-      renderError(error)
-    }
-  }
-  const rerender = () => {
-    console.log('This is never seen? Why?')
-    setTimeout(render)
-  }
-  module.hot.accept('./App', rerender)
+    );
+  });
 }
-
-render()

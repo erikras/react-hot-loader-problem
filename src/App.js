@@ -1,15 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import Page from './Page'
 
 class App extends Component {
-  static propTypes = {
-    children: PropTypes.any.isRequired
-  }
-  
   render() {
-    const { children } = this.props
     return (
-      <div>
-        {children}
+      <div style={{ background: '#ddd' }}>
+        <Page/>
       </div>
     )
   }
